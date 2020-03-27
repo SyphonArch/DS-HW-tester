@@ -1,6 +1,6 @@
 """Runs the test on a java file"""
 from parser import load_testset
-from setup import slash, projects, executables, arguments, command
+from setup import slash, executables, command
 from sys import argv
 import os
 import subprocess
