@@ -19,6 +19,13 @@ class TestSet:
     def __len__(self):
         return self._len
 
+    def test_data(self, i):
+        if self.arguments is None:
+            argument = None
+        else:
+            argument = self.arguments[i]
+        return self.inputs[i], self.outputs[i], argument
+
 
 def load_testset(homework_number):
     assert homework_number in range(1, 7)

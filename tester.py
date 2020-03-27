@@ -1,18 +1,17 @@
 """Runs the test on a java file"""
 from parser import load_testset
-from setup import slash, projects, executables, arguments
+from setup import slash, projects, executables, arguments, command
 from sys import argv
 import os
 import subprocess
 
 
-command = 'java'
-def test(homework_number, input_str):
-    executable_name = executables[homework_number - 1]
+def test(hw_num, input_str, argument=None):
+    executable_name = executables[hw_num - 1]
 
-    to_execute = [command, f'{os.getcwd()}{slash}{source}{slash}{executable_name}']
-    if arguments[homework_number - 1]:
-        pass
+    to_execute = [command, '-cp', f'{os.getcwd()}{slash}source{slash}', executable_name]
+    if argument:
+        to_execute.append(argument)
     result = subprocess.run(to_execute, input=input_str.encode('utf-8'), stdout=subprocess.PIPE)
     return result.stdout.decode('utf-8')
 
@@ -34,8 +33,9 @@ if __name__ == '__main__':
         if homework_number not in range(1, 7):
             raise IndexError("Homework number must be an integer")
 
-    project = projects[homework_number - 1]
-
-    testset = load_testset(project)
-
-    for i in range(len(testset))
+    testset = load_testset(homework_number)
+    for i in range(len(testset)):
+        inp, out, arg = testset.test_data(i)
+        rslt = test(homework_number, inp, arg)
+        print(i + 1, out == rslt)
+    print("Done!")
