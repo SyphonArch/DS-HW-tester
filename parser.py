@@ -4,12 +4,25 @@ import pickle
 
 projects = ['1-BigInteger', '2-MovieDatabase', '3-StackCalculator', '4-Sorting', '5-Matching', '6-Subway']
 
-io_data = {}
 
-for project in projects:
-    path = f"{os.getcwd()}/testcases/{project}/testset/"
-    input_path = path + 'input/'
-    output_path = path + 'output/'
+class TestSet:
+    """Class for a testset of a single project"""
+    def __init__(self, inputs, outputs):
+        assert len(inputs) == len(outputs)
+        self.inputs = inputs
+        self.outputs = outputs
+        self._len = len(inputs)
+
+    def __len__(self):
+        return self._len
+
+
+slash = '/'
+def load_testset(project):
+    """Loads the testset of a single project and returns a TestSet object"""
+    path = f"{os.getcwd()}{slash}testcases{slash}{project}{slash}testset{slash}"
+    input_path = path + f'input{slash}'
+    output_path = path + f'output{slash}'
 
     input_filenames = []
     output_filenames = []
@@ -44,9 +57,7 @@ for project in projects:
         with open(output_path + filename, 'r') as f:
             output_files_as_str.append(f.read())
 
-    io_data[project] = [input_files_as_str, output_files_as_str]
+    testset = TestSet(input_files_as_str, output_files_as_str)
+    return testset
 
-for project in projects:
-    with open(f'{os.getcwd()}/testsets/{project}.pickle', 'wb') as f:
-        pickle.dump(io_data[project], f)
 
