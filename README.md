@@ -9,7 +9,7 @@ The default testsets are the official ones, having been downloaded from ETL, wit
 
 ### How to use the tester
 1. Clone the repository to your environment of choice.
-2. Place your compiled `.class` files into the `./source` directory.
+2. Place your compiled `.class` files of your homework task into the `./source` directory.
 3. Run `tester.py` with Python 3.
 
    You must be CDed into the root directory of this repo.
