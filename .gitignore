@@ -1,2 +1,6 @@
 .DS_Store
+.idea
+*.java
+*.class
+__pycache__
 
