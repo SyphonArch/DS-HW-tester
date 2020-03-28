@@ -47,3 +47,6 @@ i.e., Passing all testcases on this tester does not guarantee that your program 
 Please use only as a testing tool and reference for debugging.
 
 Thanks!
+
+### Future update plans
+Custom testcases and/or custom testcase generator
