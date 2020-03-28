@@ -42,7 +42,7 @@ One change you might try is settings the `verbose` flag to `True`.
 
 
 ### Platforms
-This tester was tested on macOS and Windows.
+This tester was tested on **macOS Catalina** and **Windows 10**. + And now on **Ubuntu 18.04**.
 
 If it doesn't work on your machine, too bad. It worked on my machine. lolz.
 
