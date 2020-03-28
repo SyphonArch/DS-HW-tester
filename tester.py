@@ -51,6 +51,20 @@ if __name__ == '__main__':
     print("Loading testset from file...")
     testset = load_testset(homework_number)
     print(f"Loaded testset of {len(testset)} testcases from file!\n")
+
+    results_nonempty = False
+    for filename in os.listdir(results_path):
+        if filename.endswith('.txt'):
+            results_nonempty = True
+    if results_nonempty:
+        input("** WARNING: Files found in ./results! **\nThey will be deleted once you press Enter. (Ctrl-C to abort)")
+    for filename in os.listdir(results_path):
+        if filename.endswith('.txt'):
+            os.remove(results_path + slash + filename)
+    if results_nonempty:
+        print("./results has been cleared.")
+        print()
+
     input("Press Enter to initiate testing.")
     println()
     print("Testing initiated.")
