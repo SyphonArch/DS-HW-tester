@@ -1,16 +1,16 @@
 """Provides the class for storing a testset, as well as a function to load it from files."""
 import os
-import sys
-import pickle
 from setup import slash, arguments, projects
 
 
 class TestSet:
     """Class for a testset of a single project"""
-    def __init__(self, inputs, outputs, arguments=None):
+    def __init__(self, filenames, inputs, outputs, arguments=None):
         assert len(inputs) == len(outputs)
+        assert len(filenames) == len(inputs)
         if arguments is not None:
             assert len(inputs) == len(arguments)
+        self.filenames = filenames
         self.inputs = inputs
         self.outputs = outputs
         self._len = len(inputs)
@@ -25,6 +25,9 @@ class TestSet:
         else:
             argument = self.arguments[i]
         return self.inputs[i], self.outputs[i], argument
+
+    def filename(self, i):
+        return self.filenames[i]
 
 
 def load_testset(homework_number):
@@ -41,17 +44,16 @@ def load_testset(homework_number):
     argument_filenames = []
     for filename in os.listdir(input_path):
         assert filename.endswith('.txt')
-        extensionless_filename = filename.split('.')[0]
-        assert extensionless_filename.isdigit()
         input_filenames.append(filename)
     for filename in os.listdir(output_path):
         assert filename.endswith('.txt')
-        extensionless_filename = filename.split('.')[0]
-        assert extensionless_filename.isdigit()
         output_filenames.append(filename)
     input_filenames.sort()
     output_filenames.sort()
-    assert input_filenames == output_filenames
+    try:
+        assert input_filenames == output_filenames
+    except AssertionError:
+        raise AssertionError("Input and output files don't match.")
 
     if arguments[homework_number - 1]:
         for filename in os.listdir(argument_path):
@@ -77,6 +79,6 @@ def load_testset(homework_number):
             arguments_as_str.append(f.read())
 
     proj_args = arguments_as_str if arguments[homework_number - 1] else None
-    testset = TestSet(input_files_as_str, output_files_as_str, proj_args)
+    testset = TestSet(input_filenames, input_files_as_str, output_files_as_str, proj_args)
     return testset
 
