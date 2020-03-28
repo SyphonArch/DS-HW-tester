@@ -105,7 +105,7 @@ if __name__ == '__main__':
                 f.write(rslt)
             # Expected output dump
             if dump_expected_output:
-                with open(f"{results_path}{slash}{testset.filename_front(i)}" + 'expected.txt', 'w') as f:
+                with open(f"{results_path}{slash}{testset.filename_front(i)}" + '-expected.txt', 'w') as f:
                     f.write(out)
             fail_cnt += 1
 
