@@ -100,8 +100,13 @@ if __name__ == '__main__':
         if match:
             success_cnt += 1
         else:
-            with open(f"{results_path}{slash}{testset.filename(i)}", 'w') as f:
+            # User-program output dump
+            with open(f"{results_path}{slash}{testset.filename_full(i)}", 'w') as f:
                 f.write(rslt)
+            # Expected output dump
+            if dump_expected_output:
+                with open(f"{results_path}{slash}{testset.filename_front(i)}" + 'expected.txt', 'w') as f:
+                    f.write(out)
             fail_cnt += 1
 
     println()

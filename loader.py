@@ -26,8 +26,11 @@ class TestSet:
             argument = self.arguments[i]
         return self.inputs[i], self.outputs[i], argument
 
-    def filename(self, i):
+    def filename_full(self, i):
         return self.filenames[i]
+
+    def filename_front(self, i):
+        return self.filename_full(i).split('.')[0]
 
 
 def load_testset(homework_number):
@@ -58,8 +61,6 @@ def load_testset(homework_number):
     if arguments[homework_number - 1]:
         for filename in os.listdir(argument_path):
             assert filename.endswith('.txt')
-            extensionless_filename = filename.split('.')[0]
-            assert extensionless_filename.isdigit()
             argument_filenames.append(filename)
 
     input_files_as_str = []
