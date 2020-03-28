@@ -27,4 +27,5 @@ newline = '\n'
 
 # Output customization
 verbose = False  # When set to True, changes output style to verbose
+dump_input = True  # When set to True, also dumps the input file to ./results
 dump_expected_output = True  # When set to True, also dumps the expected output to ./results

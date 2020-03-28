@@ -100,9 +100,14 @@ if __name__ == '__main__':
         if match:
             success_cnt += 1
         else:
+            fail_cnt += 1
             # User-program output dump
-            with open(f"{results_path}{slash}{testset.filename_full(i)}", 'w') as f:
+            with open(f"{results_path}{slash}{testset.filename_front(i)}" + '-output.txt', 'w') as f:
                 f.write(rslt)
+            # input dump
+            if dump_input:
+                with open(f"{results_path}{slash}{testset.filename_front(i)}" + '-input.txt', 'w') as f:
+                    f.write(out)
             # Expected output dump
             if dump_expected_output:
                 with open(f"{results_path}{slash}{testset.filename_front(i)}" + '-expected.txt', 'w') as f:
