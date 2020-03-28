@@ -30,7 +30,29 @@ class TestSet:
         return self.filenames[i]
 
     def filename_front(self, i):
-        return self.filename_full(i).split('.')[0]
+        return txt_strip(self.filename_full(i))
+
+
+def txt_strip(filename):
+    """Strips the filename of the .txt extension."""
+    assert filename.endswith('.txt')
+    return filename[:-4]
+
+
+def sort_filenames(filenames):
+    """Puts filenames with integer names first, then the rest are in string-sorted order."""
+    integer_filenames = []
+    non_integer_filenames = []
+    for filename in filenames:
+        filename_front = txt_strip(filename)
+        if filename_front.isdigit():
+            integer_filenames.append(filename)
+        else:
+            non_integer_filenames.append(filename)
+
+    integer_filenames.sort(key=lambda x: int(txt_strip(x)))
+    non_integer_filenames.sort()
+    return integer_filenames + non_integer_filenames
 
 
 def load_testset(homework_number):
@@ -51,8 +73,8 @@ def load_testset(homework_number):
     for filename in os.listdir(output_path):
         if filename.endswith('.txt'):
             output_filenames.append(filename)
-    input_filenames.sort()
-    output_filenames.sort()
+    input_filenames = sort_filenames(input_filenames)
+    output_filenames = sort_filenames(output_filenames)
     try:
         assert input_filenames == output_filenames
     except AssertionError:
@@ -62,6 +84,7 @@ def load_testset(homework_number):
         for filename in os.listdir(argument_path):
             assert filename.endswith('.txt')
             argument_filenames.append(filename)
+    argument_filenames = sort_filenames(argument_filenames)
 
     input_files_as_str = []
     output_files_as_str = []
