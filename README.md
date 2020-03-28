@@ -29,7 +29,7 @@ One change you might try is settings the `verbose` flag to `True`.
 ### Adding testcases
 1. You add your test input files to `./testcases/{PROJECT_NAME}/testset/input/`
 1. You add your expected output files to `./testcases/{PROJECT_NAME}/testset/output/`
-3. You run the tester! It will load new testcases automatically.
+3. That's it! You can now run the tester. It will load new testcases automatically.
 
    Just make sure that your files end with a `.txt` extension.
 
