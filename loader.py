@@ -43,11 +43,11 @@ def load_testset(homework_number):
     output_filenames = []
     argument_filenames = []
     for filename in os.listdir(input_path):
-        assert filename.endswith('.txt')
-        input_filenames.append(filename)
+        if filename.endswith('.txt'):
+            input_filenames.append(filename)
     for filename in os.listdir(output_path):
-        assert filename.endswith('.txt')
-        output_filenames.append(filename)
+        if filename.endswith('.txt'):
+            output_filenames.append(filename)
     input_filenames.sort()
     output_filenames.sort()
     try:
