@@ -12,7 +12,7 @@ Note: It is known that at least one testset has faulty testcases - homework #3 h
 ### Prerequisites
 * Have Python 3 installed
 * Have `java` in PATH
-* Have homework compiled to `.class`
+* Have homework compiled to `.class` Java bytecode
 
 ### How to use the tester
 1. Clone the repository to your environment of choice.
