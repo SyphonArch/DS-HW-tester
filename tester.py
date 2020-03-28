@@ -107,7 +107,7 @@ if __name__ == '__main__':
             # input dump
             if dump_input:
                 with open(f"{results_path}{slash}{testset.filename_front(i)}" + '-input.txt', 'w') as f:
-                    f.write(out)
+                    f.write(inp)
             # Expected output dump
             if dump_expected_output:
                 with open(f"{results_path}{slash}{testset.filename_front(i)}" + '-expected.txt', 'w') as f:
