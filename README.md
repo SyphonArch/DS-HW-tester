@@ -28,6 +28,8 @@ Note: It is known that at least one testset has faulty testcases - homework #3 h
    If not provided as an argument, you will be prompted upon the execution.
 4. That's it! Output that doesn't match will be stored under `./results`.
 
+   For subtle differences you may find the `diff` command useful.
+
 ### Customization
 You may edit the settings in the `setup.py` file to change program behaviour.
 
