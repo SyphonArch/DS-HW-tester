@@ -10,7 +10,7 @@ __author__ = 'SyphonArch'
 
 
 def println():
-    print('----------------------------------------')
+    print('-----------------------------------------')
 
 
 def test(hw_num, input_str, argument=None):
@@ -27,7 +27,7 @@ def test(hw_num, input_str, argument=None):
 
 
 if __name__ == '__main__':
-    print(f"[DS-HW-tester {__version__} coded by {__author__}]")
+    print(f"[DS-HW-tester {__version__} by {__author__}]")
     println()
 
     if len(argv) < 2:
