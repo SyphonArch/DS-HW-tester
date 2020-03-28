@@ -1,5 +1,5 @@
 # DS-HW-tester 0.1.2
-## Python script to run automated tests on the homework tasks of the Data Structure lecture(2020).
+## Python script to run automated tests on the homework tasks of the Data Structure lecture(2020, class 001).
 
 The default testsets are the official ones, having been downloaded from ETL, with the following exception:  
 
