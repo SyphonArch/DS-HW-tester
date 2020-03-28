@@ -39,4 +39,11 @@ This tester was tested on macOS and Windows.
 
 If it doesn't work on your machine, too bad. It worked on my machine. lolz.
 
+### Important sidenote
+This tester is just a tester.
 
+I.E. Passing all testcases on this tester does not guarantee that your program will pass the 'official' testing.
+
+Please use only as a testing tool and reference for debugging.
+
+Thanks!
