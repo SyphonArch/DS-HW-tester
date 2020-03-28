@@ -31,6 +31,8 @@ One change you might try is settings the `verbose` flag to `True`.
 1. You add your expected output files to `./testcases/{PROJECT_NAME}/testset/output/`
 3. You run the tester! It will load new testcases automatically.
 
+   Just make sure that your files end with a `.txt` extension.
+
 
 ### Platforms
 This tester was tested on macOS and Windows.
