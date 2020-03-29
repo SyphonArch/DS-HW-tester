@@ -7,10 +7,12 @@ The default testsets are the official ones, having been downloaded from ETL, wit
 >
 >It was ignored in the parsing of the testsets as it did not match the input format for that project.
 
+Note: It is known that at least one testset has faulty testcases - homework #3 has several.
+
 ### Prerequisites
 * Have Python 3 installed
 * Have `java` in PATH
-* Have homework compiled to `.class`
+* Have homework compiled to `.class` Java bytecode
 
 ### How to use the tester
 1. Clone the repository to your environment of choice.
@@ -26,6 +28,8 @@ The default testsets are the official ones, having been downloaded from ETL, wit
    If not provided as an argument, you will be prompted upon the execution.
 4. That's it! Output that doesn't match will be stored under `./results`.
 
+   For subtle differences you may find the `diff` command useful.
+
 ### Customization
 You may edit the settings in the `setup.py` file to change program behaviour.
 
@@ -40,7 +44,7 @@ One change you might try is settings the `verbose` flag to `True`.
 
 
 ### Platforms
-This tester was tested on macOS and Windows.
+This tester was tested on **macOS Catalina** and **Windows 10**. + And now on **Ubuntu 18.04**.
 
 If it doesn't work on your machine, too bad. It worked on my machine. lolz.
 
