@@ -4,8 +4,9 @@ from setup import *
 from sys import argv
 import os
 import subprocess
+from time import time
 
-__version__ = '0.1.2'
+__version__ = '0.1.3'
 __author__ = 'SyphonArch'
 
 
@@ -68,9 +69,12 @@ if __name__ == '__main__':
     input("Press Enter to initiate testing.")
     println()
     print("Testing initiated.")
+    start_time = time()
 
     success_cnt = 0
     fail_cnt = 0
+
+    fails = []
 
     prev_progress = 11
     for i in range(len(testset)):
@@ -101,23 +105,31 @@ if __name__ == '__main__':
             success_cnt += 1
         else:
             fail_cnt += 1
-            # User-program output dump
-            with open(f"{results_path}{slash}{testset.filename_front(i)}" + '-output.txt', 'w') as f:
-                f.write(rslt)
-            # input dump
-            if dump_input:
-                with open(f"{results_path}{slash}{testset.filename_front(i)}" + '-input.txt', 'w') as f:
-                    f.write(inp)
-            # Expected output dump
-            if dump_expected_output:
-                with open(f"{results_path}{slash}{testset.filename_front(i)}" + '-expected.txt', 'w') as f:
-                    f.write(out)
+            fails.append([i, rslt, inp, out])
 
+    finish_time = time()
+    elapsed = finish_time - start_time
     println()
     print("Done!")
+    print("That took {:.2f} seconds.".format(elapsed))
     print(f"Your code has passed {success_cnt}/{len(testset)} testcases.")
     if success_cnt == len(testset):
         print("You are good to go!")
     else:
+        println()
+        print("Dumping outputs with differences...")
+        for i in range(len(fails)):
+            idx, rslt, inp, out = fails[i]
+            # User-program output dump
+            with open(f"{results_path}{slash}{testset.filename_front(idx)}" + '-output.txt', 'w') as f:
+                f.write(rslt)
+            # input dump
+            if dump_input:
+                with open(f"{results_path}{slash}{testset.filename_front(idx)}" + '-input.txt', 'w') as f:
+                    f.write(inp)
+            # Expected output dump
+            if dump_expected_output:
+                with open(f"{results_path}{slash}{testset.filename_front(idx)}" + '-expected.txt', 'w') as f:
+                    f.write(out)
         print(f"{fail_cnt} outputs with differences have been dumped to ./results for your inspection.")
         print("Good luck with your debugging!")
