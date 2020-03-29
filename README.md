@@ -48,6 +48,10 @@ This tester was tested on **macOS Catalina** and **Windows 10**. + And now on **
 
 If it doesn't work on your machine, too bad. It worked on my machine. lolz.
 
+### Changelog
+* Version 0.1.2: Added input/expected output to results dumping, changed testcase ordering
+* Version 0.1.3: Added test timer, results dumping moved to after testing
+
 ### Important sidenote
 This tester is just a tester.
 
