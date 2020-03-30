@@ -6,7 +6,7 @@ import os
 import subprocess
 from time import time
 
-__version__ = '0.1.3'
+__version__ = '0.1.4'
 __author__ = 'SyphonArch'
 
 
@@ -77,6 +77,7 @@ if __name__ == '__main__':
     fails = []
 
     prev_progress = 11
+    int_str_len = len(str(len(testset)))
     for i in range(len(testset)):
         inp, out, arg = testset.test_data(i)
         if replace_windows_newline:
@@ -86,13 +87,15 @@ if __name__ == '__main__':
 
         match = out == rslt
         if match:
-            verdict = 'AC'
+            verdict = 'O'
         else:
-            verdict = 'WA'
+            verdict = 'X'
 
         # Output for user
         if verbose:
-            print(f"TC #{i + 1}:", verdict, flush=True)
+            print("#{{:{}d}}:".format(int_str_len).format(i + 1), verdict, end=' | ', flush=True)
+            if (i + 1) % 10 == 0:
+                print()
         else:
             progress = (len(testset) - i) * 10 // len(testset) + 1
             for num in range(prev_progress - 1, progress - 1, -1):
