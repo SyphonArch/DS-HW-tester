@@ -1,10 +1,8 @@
 # DS-HW-tester 0.1.4
 ### Python script to run automated tests on the homework tasks of the Data Structure lecture(2020).
 
-Works with all 6 homework projects of the semester!
-
-DS-HW-tester was built for your convenience.
-
+Works with all 6 homework projects of the semester!  
+DS-HW-tester was built for your convenience.  
 It has formatted output, intelligent testcase parsing, and practical debugging info to speed up your programming.
 
 
@@ -62,10 +60,8 @@ If it doesn't work on your machine, too bad. It worked on my machine. lolz.
 * Version 0.1.4: Added support for relative path inputs in HW5, and changed verbose output
 
 ## Important sidenote
-This tester is just a tester.
-
-i.e., Passing all testcases on this tester does not guarantee that your program will pass the 'official' testing.
-
+This tester is just a tester.  
+i.e., Passing all testcases on this tester does not guarantee that your program will pass the 'official' testing.  
 Please use only as a testing tool and reference for debugging.
 
 Thanks!
