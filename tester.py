@@ -139,3 +139,6 @@ if __name__ == '__main__':
                     f.write(out)
         print(f"{fail_cnt} outputs with differences have been dumped to ./results for your inspection.")
         print("Good luck with your debugging!")
+
+    println()
+    input("Press Entert to terminate.")
