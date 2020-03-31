@@ -6,7 +6,7 @@ import os
 import subprocess
 from time import time
 
-__version__ = '0.1.4'
+__version__ = '0.1.5'
 __author__ = 'SyphonArch'
 
 

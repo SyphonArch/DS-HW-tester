@@ -14,7 +14,7 @@ class TestSet:
         self.inputs = inputs
         self.outputs = outputs
         self._len = len(inputs)
-        self.arguments = arguments
+        self.arguments = arguments.strip()
 
     def __len__(self):
         return self._len
