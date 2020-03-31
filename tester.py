@@ -141,4 +141,4 @@ if __name__ == '__main__':
         print("Good luck with your debugging!")
 
     println()
-    input("Press Entert to terminate.")
+    input("Press Enter to terminate.")
