@@ -1,6 +1,6 @@
 """Provides the class for storing a testset, as well as a function to load it from files."""
 import os
-from setup import slash, arguments, projects
+from setup import slash, arguments, projects, encoding
 
 
 class TestSet:
@@ -91,15 +91,15 @@ def load_testset(homework_number):
     arguments_as_str = []
 
     for filename in input_filenames:
-        with open(input_path + filename, 'r') as f:
+        with open(input_path + filename, 'r', encoding=encoding) as f:
             input_files_as_str.append(f.read())
 
     for filename in output_filenames:
-        with open(output_path + filename, 'r') as f:
+        with open(output_path + filename, 'r', encoding=encoding) as f:
             output_files_as_str.append(f.read())
 
     for filename in argument_filenames:
-        with open(argument_path + filename, 'r') as f:
+        with open(argument_path + filename, 'r', encoding=encoding) as f:
             arguments_as_str.append(f.read())
 
     proj_args = arguments_as_str if arguments[homework_number - 1] else None

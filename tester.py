@@ -124,15 +124,18 @@ if __name__ == '__main__':
         for i in range(len(fails)):
             idx, rslt, inp, out = fails[i]
             # User-program output dump
-            with open(f"{results_path}{slash}{testset.filename_front(idx)}" + '-output.txt', 'w') as f:
+            with open(f"{results_path}{slash}{testset.filename_front(idx)}" +
+                      '-output.txt', 'w', encoding=encoding) as f:
                 f.write(rslt)
             # input dump
             if dump_input:
-                with open(f"{results_path}{slash}{testset.filename_front(idx)}" + '-input.txt', 'w') as f:
+                with open(f"{results_path}{slash}{testset.filename_front(idx)}" +
+                          '-input.txt', 'w', encoding=encoding) as f:
                     f.write(inp)
             # Expected output dump
             if dump_expected_output:
-                with open(f"{results_path}{slash}{testset.filename_front(idx)}" + '-expected.txt', 'w') as f:
+                with open(f"{results_path}{slash}{testset.filename_front(idx)}" +
+                          '-expected.txt', 'w', encoding=encoding) as f:
                     f.write(out)
         print(f"{fail_cnt} outputs with differences have been dumped to ./results for your inspection.")
         print("Good luck with your debugging!")
