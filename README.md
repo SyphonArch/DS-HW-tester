@@ -1,7 +1,5 @@
 # DS-HW-tester 0.1.5
-## Python script to run automated tests on the homework tasks of the Data Structure lecture(2020).
-# DS-HW-tester 0.1.4
-### Python script to run automated tests on the homework tasks of the Data Structure lecture(2020).
+### Python script to run automated tests on the homework tasks of the Data Structure lecture(2020, 001).
 
 Works with all 6 homework projects of the semester!  
 DS-HW-tester was built for your convenience.  
