@@ -1,4 +1,4 @@
-# DS-HW-tester 0.1.5
+# DS-HW-tester 0.2.0
 ### Python script to run automated tests on the homework tasks of the Data Structure lecture(2020, 001).
 
 Works with all 6 homework projects of the semester!  
@@ -41,12 +41,18 @@ You may edit the settings in the `setup.py` file to change program behaviour.
 
 One change you might try is settings the `verbose` flag to `False`.
 
-## Adding testcases
+## Adding custom testcases
 1. You add your test input files to `./testcases/{PROJECT_NAME}/testset/input/`
 1. You add your expected output files to `./testcases/{PROJECT_NAME}/testset/output/`
 3. That's it! You can now run the tester. It will load new testcases automatically.
 
    Just make sure that your files end with a `.txt` extension.
+   
+#### Using testcase_gen scripts to generate custom testcases
+You may run the scripts under `./testcase_gen` to generate randomized custom testcases and have them placed in their adequate folders.
+
+Note: You must run them after CDing into `./testcase_gen`.
+
 
 
 ## Platforms
@@ -59,6 +65,9 @@ If it doesn't work on your machine, too bad. It worked on my machine. lolz.
 * Version 0.1.3: Added test timer, results dumping moved to after testing
 * Version 0.1.4: Added support for relative path inputs in HW 5, and changed verbose output
 * Version 0.1.5: Fixed bug concerning arguments for HW 6, by removing newline char from argument string
+
+
+* Version 0.2.0: Added custom testcase generator for HW 1
 
 ## Important sidenote
 This tester is just a tester.  
