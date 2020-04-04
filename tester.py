@@ -25,9 +25,7 @@ def test(hw_num, input_str, argument=None):
     if replace_windows_newline:
         output_str = output_str.replace(windows_newline, newline)
     error_str = result.stderr.decode('utf-8')
-    if error_str != "":
-        print(f"ERROR: {testset.filename_full(i)} testcase throws error. Since we are lazy to show your error message, you should check it by yourself.")
-    return output_str
+    return output_str, error_str
 
 
 if __name__ == '__main__':
@@ -76,6 +74,7 @@ if __name__ == '__main__':
 
     success_cnt = 0
     fail_cnt = 0
+    err_cnt = 0
 
     fails = []
 
@@ -86,10 +85,13 @@ if __name__ == '__main__':
         if replace_windows_newline:
             out = out.replace(windows_newline, newline)
 
-        rslt = test(homework_number, inp, arg)
+        rslt, err = test(homework_number, inp, arg)
 
         match = out == rslt
-        if match:
+        if err:
+            verdict = 'E'
+            err_cnt += 1
+        elif match:
             verdict = 'O'
         else:
             verdict = 'X'
@@ -119,6 +121,8 @@ if __name__ == '__main__':
     print("Done!")
     print("That took {:.2f} seconds.".format(elapsed))
     print(f"Your code has passed {success_cnt}/{len(testset)} testcases.")
+    if err_cnt:
+        print("** WARNING: There are {} testcases with errors! **".format(err_cnt))
     if success_cnt == len(testset):
         print("You are good to go!")
     else:
