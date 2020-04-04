@@ -20,10 +20,13 @@ def test(hw_num, input_str, argument=None):
     to_execute = [command, '-cp', f'{source_path}{slash}', executable_name]
     if argument:
         to_execute.append(argument)
-    result = subprocess.run(to_execute, input=input_str.encode('utf-8'), stdout=subprocess.PIPE)
+    result = subprocess.run(to_execute, input=input_str.encode('utf-8'), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     output_str = result.stdout.decode('utf-8')
     if replace_windows_newline:
         output_str = output_str.replace(windows_newline, newline)
+    error_str = result.stderr.decode('utf-8')
+    if error_str != "":
+        print(f"ERROR: {testset.filename_full(i)} testcase throws error. Since we are lazy to show your error message, you should check it by yourself.")
     return output_str
 
 
