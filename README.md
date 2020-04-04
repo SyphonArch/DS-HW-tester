@@ -67,7 +67,7 @@ If it doesn't work on your machine, too bad. It worked on my machine. lolz.
 * Version 0.1.5: Fixed bug concerning arguments for HW 6, by removing newline char from argument string
 
 * Version 0.2.0: Added custom testcase generator for HW 1
-* Version 0.2.1: Stronger custom testcases for HW 1 (contribution of CookieHCL), as well as stderr handling
+* Version 0.2.1: Stronger custom testcases for HW 1 (contribution of @CookieHCL), as well as stderr handling
 
 ## Important sidenote
 This tester is just a tester.  
