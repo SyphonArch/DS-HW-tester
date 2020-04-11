@@ -1,4 +1,4 @@
-# DS-HW-tester 0.2.1
+# DS-HW-tester 0.2.2
 ### Python script to run automated tests on the homework tasks of the Data Structure lecture(2020, 001).
 
 Works with all 6 homework projects of the semester!  
@@ -68,6 +68,7 @@ If it doesn't work on your machine, too bad. It worked on my machine. lolz.
 
 * Version 0.2.0: Added custom testcase generator for HW 1
 * Version 0.2.1: Stronger custom testcases for HW 1 (contribution of @CookieHCL), as well as stderr handling
+* Version 0.2.2: Added stderr output dumping (again from @CookieHCL)
 
 ## Important sidenote
 This tester is just a tester.  
