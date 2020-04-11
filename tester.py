@@ -77,6 +77,8 @@ if __name__ == '__main__':
     err_cnt = 0
 
     fails = []
+    errors = []
+    error_with_fails = []
 
     prev_progress = 11
     int_str_len = len(str(len(testset)))
@@ -111,9 +113,14 @@ if __name__ == '__main__':
 
         if match:
             success_cnt += 1
+            if err:
+                errors.append([i, rslt, inp, out, err])
         else:
             fail_cnt += 1
-            fails.append([i, rslt, inp, out])
+            if err:
+                error_with_fails.append([i, rslt, inp, out, err])
+            else:
+                fails.append([i, rslt, inp, out])
 
     finish_time = time()
     elapsed = finish_time - start_time
@@ -121,31 +128,81 @@ if __name__ == '__main__':
     print("Done!")
     print("That took {:.2f} seconds.".format(elapsed))
     print(f"Your code has passed {success_cnt}/{len(testset)} testcases.")
-    if err_cnt:
-        print("** WARNING: There are {} testcases with errors! **".format(err_cnt))
-    if success_cnt == len(testset):
-        print("You are good to go!")
-    else:
+    if err_cnt or fail_cnt:
+        if err_cnt:
+            print("** WARNING: There are {} testcases with errors! **".format(err_cnt))
+
         println()
-        print("Dumping outputs with differences...")
-        for i in range(len(fails)):
-            idx, rslt, inp, out = fails[i]
+        if fail_cnt:
+            print("Dumping outputs with differences...")
+            for i in range(len(fails)):
+                idx, rslt, inp, out = fails[i]
+                # Input dump
+                if dump_input:
+                    with open(f"{results_path}{slash}{testset.filename_front(idx)}" +
+                            '-input.txt', 'w', encoding=encoding) as f:
+                        f.write(inp)
+                # User-program output dump
+                with open(f"{results_path}{slash}{testset.filename_front(idx)}" +
+                        '-output.txt', 'w', encoding=encoding) as f:
+                    f.write(rslt)
+                # Expected output dump
+                if dump_expected_output:
+                    with open(f"{results_path}{slash}{testset.filename_front(idx)}" +
+                            '-expected.txt', 'w', encoding=encoding) as f:
+                        f.write(out)
+        if dump_error:
+            print("Dumping outputs with errors...")
+            for i in range(len(errors)):
+                idx, rslt, inp, out, err = errors[i]
+                # Error dump
+                with open(f"{results_path}{slash}{testset.filename_front(idx)}" +
+                        '-error.txt', 'w', encoding=encoding) as f:
+                    f.write(err)
+                # Input dump
+                if dump_input:
+                    with open(f"{results_path}{slash}{testset.filename_front(idx)}" +
+                            '-input.txt', 'w', encoding=encoding) as f:
+                        f.write(inp)
+                # User-program output dump
+                if dump_output_when_error:
+                    with open(f"{results_path}{slash}{testset.filename_front(idx)}" +
+                            '-output.txt', 'w', encoding=encoding) as f:
+                        f.write(rslt)
+                # Expected output dump
+                if dump_expected_output_when_error:
+                    with open(f"{results_path}{slash}{testset.filename_front(idx)}" +
+                            '-expected.txt', 'w', encoding=encoding) as f:
+                        f.write(out)
+        for i in range(len(error_with_fails)):
+            idx, rslt, inp, out, err = error_with_fails[i]
+            # Error dump
+            if dump_error:
+                with open(f"{results_path}{slash}{testset.filename_front(idx)}" +
+                        '-error.txt', 'w', encoding=encoding) as f:
+                    f.write(err)
+            # Input dump
+            if dump_input:
+                with open(f"{results_path}{slash}{testset.filename_front(idx)}" +
+                        '-input.txt', 'w', encoding=encoding) as f:
+                    f.write(inp)
             # User-program output dump
             with open(f"{results_path}{slash}{testset.filename_front(idx)}" +
                       '-output.txt', 'w', encoding=encoding) as f:
                 f.write(rslt)
-            # input dump
-            if dump_input:
-                with open(f"{results_path}{slash}{testset.filename_front(idx)}" +
-                          '-input.txt', 'w', encoding=encoding) as f:
-                    f.write(inp)
             # Expected output dump
             if dump_expected_output:
                 with open(f"{results_path}{slash}{testset.filename_front(idx)}" +
-                          '-expected.txt', 'w', encoding=encoding) as f:
+                        '-expected.txt', 'w', encoding=encoding) as f:
                     f.write(out)
-        print(f"{fail_cnt} outputs with differences have been dumped to ./results for your inspection.")
+
+        if dump_error:
+            print(f"{fail_cnt + len(errors)} outputs with differences or errors have been dumped to ./results for your inspection.")
+        elif fail_cnt:
+            print(f"{fail_cnt} outputs with differences have been dumped to ./results for your inspection.")
         print("Good luck with your debugging!")
+    else:
+        print("You are good to go!")
 
     println()
     input("Press Enter to terminate.")
