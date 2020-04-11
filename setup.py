@@ -29,7 +29,9 @@ newline = '\n'
 verbose = True  # When set to True, changes output style to verbose
 dump_input = True  # When set to True, also dumps the input file to ./results
 dump_expected_output = True  # When set to True, also dumps the expected output to ./results
-
+dump_error = True  # When set to True, also dumps the errors to ./results
+dump_output_when_error = False  # When set to True, even when you're correct, dumps the output to ./results if you have error
+dump_expected_output_when_error = False  # When set to True, even when you're correct, dumps the expected output to ./results if you have error
 
 # encoding
 encoding = 'utf-8'
