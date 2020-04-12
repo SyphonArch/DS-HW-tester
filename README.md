@@ -13,8 +13,6 @@ The default testsets are the official ones, having been downloaded from ETL, wit
 >
 >It was ignored in the parsing of the testsets as it did not match the input format for that project.
 
-Note: It is known that at least one testset has faulty testcases - homework #3 has several.
-
 ## Prerequisites
 * Have Python 3 installed
 * Have `java` in PATH
