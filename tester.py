@@ -118,11 +118,10 @@ if __name__ == '__main__':
             success_cnt += 1
             if err:
                 passed_cases_with_error.append([i, rslt, inp, out, err])
+        elif err:
+            failed_cases_with_error.append([i, rslt, inp, out, err])
         else:
-            if err:
-                failed_cases_with_error.append([i, rslt, inp, out, err])
-            else:
-                failed_cases_without_error.append([i, rslt, inp, out, ''])
+            failed_cases_without_error.append([i, rslt, inp, out, ''])
 
     err_cnt = len(failed_cases_with_error) + len(passed_cases_with_error)
     fail_cnt = len(failed_cases_with_error) + len(failed_cases_without_error)

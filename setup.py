@@ -29,7 +29,7 @@ dump_input = True  # When set to True, also dumps the input file to ./results
 dump_expected_output = True  # When set to True, also dumps the expected output to ./results
 
 dump_error = True  # When set to True, dumps the errors to ./results
-dump_input_when_error = False  # When set to True, dumps the input to ./results in cases of error
+dump_input_when_error = True  # When set to True, dumps the input to ./results in cases of error
 dump_output_when_error = False  # When set to True, dumps the output to ./results in cases of error
 dump_expected_output_when_error = False  # When set to True, dumps the expected output to ./results in cases of error
 
