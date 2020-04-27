@@ -14,7 +14,7 @@ The default testsets are the official ones, having been downloaded from ETL, wit
 >It was ignored in the parsing of the testsets as it did not match the input format for that project.
 
 ## Prerequisites
-* Have Python 3 installed
+* Have Python 3 installed (3.6 or above)
 * Have `java` in PATH
 * Have homework compiled to `.class` Java bytecode
 
