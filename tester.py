@@ -1,4 +1,6 @@
-"""Runs the test on a java file"""
+"""Contains main testing code for your HW.
+
+Can be run as script for compatibility."""
 from loader import load_testset
 from setup import *
 from sys import argv
@@ -34,7 +36,7 @@ def dump(filename, data):
         f.write(data)
 
 
-if __name__ == '__main__':
+def main():
     print(f"[DS-HW-tester {__version__} by {__author__}]")
     println()
 
@@ -179,3 +181,7 @@ if __name__ == '__main__':
 
     println()
     input("Press Enter to terminate.")
+
+
+if __name__ == '__main__':
+    main()

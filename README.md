@@ -1,4 +1,4 @@
-# DS-HW-tester 0.2.2
+# DS-HW-tester 0.2.3
 ### Python script to run automated tests on the homework tasks of the Data Structure lecture(2020, 001).
 
 Works with all 6 homework projects of the semester!  
@@ -21,13 +21,13 @@ The default testsets are the official ones, having been downloaded from ETL, wit
 ## How to use the tester
 1. Clone the repository to your environment of choice.
 2. Place your compiled `.class` files of your homework task into the `./source` directory.
-3. Run `tester.py` with Python 3.
+3. Run `checker.py` with Python 3.
 
    You must be CDed into the root directory of this repo.
    
    When running the tester, you may provide the homework number as an argument like below:
    
-   `python3 tester.py 1`
+   `python3 checker.py 1`
    
    If not provided as an argument, you will be prompted upon the execution.
 4. That's it! Output that doesn't match will be stored under `./results`.
@@ -67,6 +67,7 @@ If it doesn't work on your machine, too bad. It worked on my machine. lolz.
 * Version 0.2.0: Added custom testcase generator for HW 1
 * Version 0.2.1: Stronger custom testcases for HW 1 (contribution of @CookieHCL), as well as stderr handling
 * Version 0.2.2: Added stderr output dumping (again from @CookieHCL)
+* Version 0.2.3: Added `checker.py` as the new 'standard' way of execution. For compatibility, running `tester.py` still works.
 
 ## Important sidenote
 This tester is just a tester.  
