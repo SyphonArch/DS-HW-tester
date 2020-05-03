@@ -43,6 +43,7 @@ if __name__ == '__main__':
             homework_number = input("Input homework number: ")
             if homework_number.isdigit() and int(homework_number) in range(1, 7):
                 homework_number = int(homework_number)
+                println()
                 break
             print("Invalid input.")
     else:
@@ -54,7 +55,6 @@ if __name__ == '__main__':
         if homework_number not in range(1, 7):
             raise IndexError("Homework number must be an integer")
 
-    println()
     print(f"<HW {homework_number}>")
     print("Loading testset from file...")
     testset = load_testset(homework_number)
