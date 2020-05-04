@@ -56,9 +56,9 @@ def sort_filenames(filenames):
 
 
 def load_testset(homework_number):
+    """Loads the testset of a single project and returns a TestSet object"""
     assert homework_number in range(1, 7)
     project = projects[homework_number - 1]
-    """Loads the testset of a single project and returns a TestSet object"""
     path = f"{os.getcwd()}{slash}testcases{slash}{project}{slash}testset{slash}"
     input_path = path + f'input{slash}'
     output_path = path + f'output{slash}'
