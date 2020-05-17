@@ -8,7 +8,7 @@ import os
 import subprocess
 from time import time
 
-__version__ = '0.2.2'
+__version__ = '0.2.4'
 __author__ = 'SyphonArch'
 
 
@@ -88,12 +88,20 @@ def main():
 
     prev_progress = 11
     int_str_len = len(str(len(testset)))
+    max_testcase_time = 0
+    max_testcase_time_number = 0
     for i in range(len(testset)):
         inp, out, arg = testset.test_data(i)
         if replace_windows_newline:
             out = out.replace(windows_newline, newline)
 
+        testcase_start = time()
         rslt, err = test(homework_number, inp, arg)
+        testcase_end = time()
+        testcase_time = testcase_end - testcase_start
+        if testcase_time > max_testcase_time:
+            max_testcase_time = testcase_time
+            max_testcase_time_number = i + 1
 
         match = out == rslt
         if err:
@@ -134,6 +142,8 @@ def main():
     print("Done!")
     print("That took {:.2f} seconds.".format(elapsed))
     print(f"Your code has passed {success_cnt}/{len(testset)} testcases.")
+    print("Testcase #{} took the longest to execute, at {:.2f} seconds.".format(max_testcase_time_number,
+                                                                                max_testcase_time))
 
     to_dump = []
 
