@@ -54,7 +54,7 @@ Note: You must run them after CDing into `./testcase_gen`.
 
 
 ## Platforms
-This tester was tested on **macOS Catalina** and **Windows 10**. + And now on **Ubuntu 18.04**.
+This tester was tested on **macOS Catalina** and **Windows 10**. + And now on **Ubuntu 18.04**. + **Ubuntu 20.04**.
 
 If it doesn't work on your machine, too bad. It worked on my machine. lolz.
 
