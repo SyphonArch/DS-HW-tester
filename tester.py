@@ -7,8 +7,9 @@ from sys import argv
 import os
 import subprocess
 from time import time
+import subway_path_checker as spc
 
-__version__ = '0.2.4'
+__version__ = '0.3.0'
 __author__ = 'SyphonArch'
 
 
@@ -57,6 +58,8 @@ def main():
         if homework_number not in range(1, 7):
             raise IndexError("Homework number must be an integer")
 
+    special_judge = hw6_special_judge and homework_number == 6
+
     print(f"<HW {homework_number}>")
     print("Loading testset from file...")
     testset = load_testset(homework_number)
@@ -75,6 +78,8 @@ def main():
         print("./results has been cleared.")
         print()
 
+    if special_judge:
+        print("========= Using Special Judge ==========")
     input("Press Enter to initiate testing.")
     println()
     print("Testing initiated.")
@@ -103,7 +108,10 @@ def main():
             max_testcase_time = testcase_time
             max_testcase_time_number = i + 1
 
-        match = out == rslt
+        if special_judge:
+            match = spc.check(arg, inp, rslt)
+        else:
+            match = out == rslt
         if err:
             verdict = 'E'
         elif match:
@@ -158,7 +166,7 @@ def main():
                 to_dump.append([testset.filename_front(idx) + '-input', inp])
             if dump_output_when_error:
                 to_dump.append([testset.filename_front(idx) + '-output', rslt])
-            if dump_expected_output_when_error:
+            if dump_expected_output_when_error and not special_judge:
                 to_dump.append([testset.filename_front(idx) + '-expected', out])
             if dump_error:
                 to_dump.append([testset.filename_front(idx) + '-error', err])
@@ -168,7 +176,7 @@ def main():
             if dump_input:
                 to_dump.append([testset.filename_front(idx) + '-input', inp])
             to_dump.append([testset.filename_front(idx) + '-output', rslt])
-            if dump_expected_output:
+            if dump_expected_output and not special_judge:
                 to_dump.append([testset.filename_front(idx) + '-expected', out])
 
         for case in failed_cases_with_error:

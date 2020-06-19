@@ -1,4 +1,4 @@
-# DS-HW-tester 0.2.4
+# DS-HW-tester 0.3.0
 ### Python script to run automated tests on the homework tasks of the Data Structure lecture(2020, 001).
 
 Works with all 6 homework projects of the semester!  
@@ -13,6 +13,9 @@ The default testsets are the official ones, having been downloaded from ETL, wit
 >
 >It was ignored in the parsing of the testsets as it did not match the input format for that project.
 
+Homeworks 1-5 are checked by comparing the output to the official testcases.
+
+Homework 6 has a special judge which actively checks your answer to validate it.
 ## Prerequisites
 * Have Python 3 installed (3.6 or above)
 * Have `java` in PATH
@@ -64,11 +67,16 @@ If it doesn't work on your machine, too bad. It worked on my machine. lolz.
 * Version 0.1.4: Added support for relative path inputs in HW 5, and changed verbose output
 * Version 0.1.5: Fixed bug concerning arguments for HW 6, by removing newline char from argument string
 
+
 * Version 0.2.0: Added custom testcase generator for HW 1
 * Version 0.2.1: Stronger custom testcases for HW 1 (contribution of @CookieHCL), as well as stderr handling
 * Version 0.2.2: Added stderr output dumping (again from @CookieHCL)
 * Version 0.2.3: Added `checker.py` as the new 'standard' way of execution. For compatibility, running `tester.py` still works.
 * Version 0.2.4: Added longest single testcase execution time output.
+
+
+* Version 0.3.0: HW 6 now has active path checking! Your answer will not be compared with a fixed answer; it will be checked based on whether 1. the path is valid, and 2. the path is the shortest.
+
 
 ## Important sidenote
 This tester is just a tester.  

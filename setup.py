@@ -35,3 +35,6 @@ dump_expected_output_when_error = False  # When set to True, dumps the expected 
 
 # encoding
 encoding = 'utf-8'
+
+# HW 6 special judge
+hw6_special_judge = True
