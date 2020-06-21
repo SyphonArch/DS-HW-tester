@@ -35,7 +35,6 @@ def check(arg, inp, out):
                 return False
         return True
     except Exception as e:
-        print(str(e) + "Check your output formatting!")
         return False
 
 
