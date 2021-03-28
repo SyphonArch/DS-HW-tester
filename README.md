@@ -5,6 +5,7 @@ Works with all 6 homework projects of the semester!
 DS-HW-tester was built for your convenience.  
 It has formatted output, intelligent testcase parsing, and practical debugging info to speed up your programming.
 
+![image](https://user-images.githubusercontent.com/48833786/112752880-17e9b200-9010-11eb-81ee-8c67d6b8eec8.png)
 
 
 The default testsets are the official ones, having been downloaded from ETL, with the following exception:  
